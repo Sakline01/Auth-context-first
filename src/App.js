@@ -7,14 +7,27 @@ const logedIn = {
     this.isAuth = !this.isAuth;
   }
 }
+const theme = {
+  dark: {
+    color: "white",
+    background: "black"
+  },
+  light: {
+    color: "black",
+    background: "white"
+  }
+}
+const ThemeContext = createContext();
 const AuthContext = createContext();
 function App() {
   return (
-    <AuthContext.Provider value={logedIn}>
-      <Nav />
-    </AuthContext.Provider>
+    <ThemeContext.Provider value={theme}>
+      <AuthContext.Provider value={logedIn}>
+        <Nav />
+      </AuthContext.Provider>
+    </ThemeContext.Provider >
   );
 }
 
 export default App;
-export { AuthContext };
+export { AuthContext, ThemeContext };
